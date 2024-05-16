@@ -3,6 +3,8 @@ package modelo.dao;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
+import modelo.dao.ClienteDao;
+import modelo.dao.ClienteDaoImplMy8Jpa;
 import modelo.entidades.Cliente;
 
 

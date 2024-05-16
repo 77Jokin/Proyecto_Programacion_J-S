@@ -2,6 +2,9 @@ package testing;
 
 
 import modelo.dao.ClienteDaoImplMy8Jpa;
+
+import java.math.BigDecimal;
+
 import modelo.dao.ClienteDao;
 import modelo.entidades.Cliente;
 
@@ -32,7 +35,7 @@ public class TestClientesDao {
 		
 	}
 	public static void alta() {
-		Cliente c = new Cliente("ZZ", "Zarza Zuli", cdao.buscarUno(1));
+		Cliente c = new Cliente("54789135B", "mel", "Madrid", new BigDecimal("1000000"), "Jokin", 3);
 		System.out.println(cdao.alta(c));
 		
 	}
