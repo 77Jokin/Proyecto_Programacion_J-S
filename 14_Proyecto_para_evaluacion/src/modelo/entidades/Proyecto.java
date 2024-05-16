@@ -186,29 +186,5 @@ public class Proyecto implements Serializable {
 				+ ", fechaFinReal=" + fechaFinReal + ", fechaInicio=" + fechaInicio + ", ventaPrevisto=" + ventaPrevisto
 				+ ", cliente=" + cliente + ", empleado=" + empleado + "]";
 	}
-	
-	public double margenPrevisto() {
-		//Importe de venta – coste previsto
-		return ventaPrevisto.doubleValue() - costesPrevisto.doubleValue();
-		
-	}
-	
-	public double margenReal() { 
-		//Importe de venta – gastos reales
-		return ventaPrevisto.doubleValue() - costeReal.doubleValue();
-		
-	}
-	
-	public double diferenciaGastos() {
-		//Gasto real – gasto previsto
-		return costeReal.doubleValue() - costesPrevisto.doubleValue();
-		
-	}
-	
-	public double diferenciaFinPrevistoReal(){ 
-		// Días entre fin previsto y fin real
-		long diferencia = fechaFinReal.getTime() - fechaFinPrevisto.getTime();
-        return (double) diferencia / (24 * 60 * 60 * 1000); 
-		
-	}
+
 }
