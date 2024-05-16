@@ -1,7 +1,7 @@
 package testing;
 
 
-import modelo.dao.ClientDaoImplMy8Jpa;
+import modelo.dao.ClienteDaoImplMy8Jpa;
 import modelo.dao.ClienteDao;
 import modelo.entidades.Cliente;
 
@@ -9,7 +9,7 @@ public class TestClientesDao {
 	private static ClienteDao cdao;
 	
 	static {
-		cdao = new ClientDaoImplMy8Jpa();
+		cdao = new ClienteDaoImplMy8Jpa();
 	}
 	
 	public static void main(String[] args) {
