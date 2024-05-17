@@ -3,7 +3,7 @@ package modelo.dao;
 import java.util.List;
 import modelo.entidades.ProyectoConEmpleado;
 
-public interface ProyectoConEmpleadoDao extends InterGenericoCrud<Integer, ProyectoConEmpleadoDao>{
+public interface ProyectoConEmpleadoDao extends InterGenericoCrud<Integer, ProyectoConEmpleado>{
 	
 	int horasAsignadasAProyecto(String codigoProyecto);
 	int asignarEmpleadosAProyecto(List<ProyectoConEmpleado> empleados); 

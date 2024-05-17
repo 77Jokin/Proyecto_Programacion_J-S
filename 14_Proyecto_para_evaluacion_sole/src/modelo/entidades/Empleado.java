@@ -231,9 +231,8 @@ public class Empleado implements Serializable {
 	}
 	
 	public String obtenerEmail() {
-		// Revisar, esta en el exaemn 2 
-		return nombre.substring(0, 1).toLowerCase() + apellidos.split(" ")[0].toLowerCase();
-		// Primera letra del nombr+ primer apellido, en minúsculas
+
+		return email;
 	}
 	
 	public String nombreCompleto() {

@@ -1,5 +1,6 @@
 package modelo.dao;
 
+import java.util.Date;
 import java.util.List;
 import modelo.entidades.Proyecto;
 
@@ -66,9 +67,8 @@ public class ProyectoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Proy
 
 	@SuppressWarnings("unchecked")
 	@Override
-	//PREGUNTAR SI EN NULL TMB SE PUEDE METER COMO VALOR
+	
 	public List<Proyecto> proyectosByEstado(String estado) {
-			//jpql = "select p from Proyecto p where p.estado = 'Terminado'";
 			jpql = "select p from Proyecto p where p.estado = :estado";
 		return em.createQuery(jpql).setParameter("estado", estado).getResultList();
 	}
@@ -89,7 +89,7 @@ public class ProyectoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Proy
 
 	@Override
 	public double importesVentaProyectosTerminados() {
-		// PREGUNTAR SI ES LA SUMA DE TODAS LAS VENTAS PREVISTAS 
+
 		jpql = "select sum(p.ventaPrevisto) from Proyecto p where p.estado = 'TERMINADO'";
 		return (double) em.createQuery(jpql).getSingleResult();
 	}
@@ -102,20 +102,18 @@ public class ProyectoDaoImplMy8Jpa extends AbstractDaoImplMy8Jpa implements Proy
 
 	@Override
 	public int diasATerminoProyectoActivo(String codigoProyecto) {
-		// Cuantos días quedan para terminar el proyecto
-		 //(diferencia entre fecha_fin_previsto y la fecha de hoy
-		return 0;
-		/*
-		 *     Proyecto proyecto = buscarUno(codigoProyecto);
-    if (Objects.nonNull(proyecto)) {
-        Date fechaFinPrevisto = proyecto.getFechaFinPrevisto();
-        Date fechaHoy = new Date();
-        long diff = fechaFinPrevisto.getTime() - fechaHoy.getTime();
-        return (int) (diff / (24 * 60 * 60 * 1000));
-    } else {
-        return 0;
-    }
-		 */
+
+		 Proyecto pro = buscarUno(codigoProyecto);
+		    if (pro.getEstado().equalsIgnoreCase("TERMINADO")) {
+		        Date fechaFinPrevisto = pro.getFechaFinPrevisto();
+		        Date fechaHoy = new Date();
+		        long diff = fechaFinPrevisto.getTime() - fechaHoy.getTime();
+		        return (int) (diff / (24 * 60 * 60 * 1000));
+		    } else 
+		        return 0;
+		    
+		
+		
 	}
 
 }
