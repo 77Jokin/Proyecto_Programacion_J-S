@@ -19,10 +19,16 @@ public class TestProyectoDaoJpa {
 	}
 	public static void main(String[] args) {
 		//alta();
-		uno();
+		//uno();
 		//todos();
 		//eliminar();
 		//modificar();
+		porEstado();
+		//porCliente();
+		//porJefeYEstado();
+		//importesProyTerminados();
+		//margenBrutoTerminados();
+		//diasATerminoActivo();
 
 	}
 	private static void alta() {
@@ -66,5 +72,28 @@ public class TestProyectoDaoJpa {
 		 System.out.println(pdao.buscarUno("FOR2021001")); 
 
 	 }
-
+	 
+	 private static void porEstado() {
+		 pdao.proyectosByEstado("TERMINADO").forEach(System.out::println);
+	 }
+	 
+	 private static void porCliente() {
+		 pdao.proyectosByCliente("A22222222").forEach(System.out::println);
+	 }
+	 
+	 private static void porJefeYEstado() {
+		 pdao.proyectosByJefeProyectoAndByEstado(114, "ACTIVO").forEach(System.out::println);
+	 }
+	 
+	 private static void importesProyTerminados() {
+		 System.out.println(pdao.importesVentaProyectosTerminados());
+	 }
+	 
+	 private static void margenBrutoTerminados() {
+		 System.out.println(pdao.margenBrutoProyectosTerminados());
+	 }
+	 
+	 private static void diasATerminoActivo() {
+		 System.out.println(pdao.diasATerminoProyectoActivo("FOR2021000"));
+	 }
 }
